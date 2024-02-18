@@ -2,6 +2,7 @@ import nltk
 import spacy
 import streamlit as st
 import matplotlib.pyplot as plt
+import openai
 
 nltk.download('stopwords')
 spacy.load('en_core_web_sm')
@@ -170,11 +171,11 @@ def run():
                                 unsafe_allow_html=True)
                 elif resume_data['no_of_pages'] == 2:
                     cand_level = "Intermediate"
-                    st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at intermediate level!</h4>''',
+                    st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at Intermediate level!</h4>''',
                                 unsafe_allow_html=True)
                 elif resume_data['no_of_pages'] >= 3:
                     cand_level = "Experienced"
-                    st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
+                    st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at Experienced level!''',
                                 unsafe_allow_html=True)
 
                 st.subheader("**Skills Recommendation💡**")
@@ -386,6 +387,8 @@ def run():
                 st.video(interview_vid)
 
                 connection.commit()
+            # gpt_survey(reco_field)
+
             else:
                 st.error('Something went wrong..')
     else:
@@ -438,5 +441,32 @@ def run():
             else:
                 st.error("Wrong ID & Password Provided")
 
+
+# 1st way + GPT
+# def gpt_survey(content):
+#     openai.api_key = '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'  # Make sure to use your actual API key
+#     response = openai.ChatCompletion.create(
+#         model="gpt-3.5-turbo",  # Updated model identifier
+#         messages=[
+#             {"role": "user", "content": content}
+#         ]
+#     )
+#     print(response['choices'][0]['message']['content'])
+
+
+# 2nd way + GPT
+# try:
+#     with open("API_KEY", "r") as file:
+#         API_KEY = file.read().strip()
+#
+#     openai.api_key = API_KEY
+#
+#     response = openai.ChatCompletion.create(
+#         model="davinci-002",
+#         messages=[
+#             {"role": "user", "content": "Write me a motivational letter for " + content + " job"}
+#         ]
+#     )
+#     print(response.choices[0].message['content'])
 
 run()
