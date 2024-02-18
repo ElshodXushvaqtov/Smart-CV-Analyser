@@ -456,22 +456,7 @@ def gpt_survey(content):
         ]
     )
     print(response['choices'][0]['message']['content'])
-    return (response['choices'][0]['message']['content'])
+    return response['choices'][0]['message']['content']
 
-
-# 2nd way + GPT
-# try:
-#     with open("API_KEY", "r") as file:
-#         API_KEY = file.read().strip()
-#
-#     openai.api_key = API_KEY
-#
-#     response = openai.ChatCompletion.create(
-#         model="davinci-002",
-#         messages=[
-#             {"role": "user", "content": "Write me a motivational letter for " + content + " job"}
-#         ]
-#     )
-#     print(response.choices[0].message['content'])
 
 run()
