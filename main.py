@@ -387,7 +387,9 @@ def run():
                 st.video(interview_vid)
 
                 connection.commit()
-            # gpt_survey(reco_field)
+                # st.success("This is a motivational letter to help you"+"\n"+gpt_survey(reco_field))
+                gpt_survey(reco_field)
+                # gpt_survey(reco_field)
 
             else:
                 st.error('Something went wrong..')
@@ -443,15 +445,15 @@ def run():
 
 
 # 1st way + GPT
-# def gpt_survey(content):
-#     openai.api_key = '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'  # Make sure to use your actual API key
-#     response = openai.ChatCompletion.create(
-#         model="gpt-3.5-turbo",  # Updated model identifier
-#         messages=[
-#             {"role": "user", "content": content}
-#         ]
-#     )
-#     print(response['choices'][0]['message']['content'])
+def gpt_survey(content):
+    openai.api_key = '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'  # Make sure to use your actual API key
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Updated model identifier
+        messages=[
+            {"role": "user", "content": "Write me a motivational letter for topic "+content+" job."}
+        ]
+    )
+    print(response['choices'][0]['message']['content'])
 
 
 # 2nd way + GPT
