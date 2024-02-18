@@ -389,7 +389,9 @@ def run():
                 connection.commit()
                 # st.success("This is a motivational letter to help you"+"\n"+gpt_survey(reco_field))
                 gpt_survey(reco_field)
-                # gpt_survey(reco_field)
+                st.success(
+                    "This is an example of motivational letter in order to improve your writing and help you to improve:\n" + gpt_survey(
+                        reco_field))
 
             else:
                 st.error('Something went wrong..')
@@ -446,14 +448,15 @@ def run():
 
 # 1st way + GPT
 def gpt_survey(content):
-    openai.api_key = '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'  # Make sure to use your actual API key
+    openai.api_key = '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'  # Make sure to use your actual API key
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Updated model identifier
         messages=[
-            {"role": "user", "content": "Write me a motivational letter for topic "+content+" job."}
+            {"role": "user", "content": "Write me a motivational letter for topic " + content + " job."}
         ]
     )
     print(response['choices'][0]['message']['content'])
+    return (response['choices'][0]['message']['content'])
 
 
 # 2nd way + GPT
