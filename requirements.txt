@@ -1,0 +1,14 @@
+pdfminer3~=2018.12.3.0
+pyresparser~=1.0.6
+streamlit~=1.31.1
+pandas~=2.2.0
+pafy~=0.5.5
+plotly~=5.19.0
+pymysql~=1.1.0
+streamlit-tags
+Pillow
+youtube-dl
+nltk~=3.8.1
+pdfminer3
+spacy==2.3.5
+matplotlib~=3.8.3
