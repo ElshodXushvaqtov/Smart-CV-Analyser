@@ -446,9 +446,8 @@ def run():
                 st.error("Wrong ID & Password Provided")
 
 
-# 1st way + GPT
 def gpt_survey(content):
-    openai.api_key = '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'  # Make sure to use your actual API key
+    openai.api_key = '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'
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Updated model identifier
         messages=[
